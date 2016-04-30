@@ -2,20 +2,22 @@
 <% if @palavras.empty? %>
 	<h5>Não possui palavra cadastrada!</h5>
 <% else %>	
-	<% @palavras.each do |palavra| %>
-		<%= image_tag(palavra.imagem.url(:small)) if palavra.imagem.present?  %>
-		<div class="noticia">
-				
-			<div class="noticia-texto text-justify">
-				<strong><%= link_to "#{palavra.titulo}", "/show_palavra/#{palavra.id}", remote: true %></strong>
-				<%= sub_texto(palavra.texto,200) %>		
+	<div class="palavras">
+		<% @palavras.each do |palavra| %>
+			<div class="palavra-index">
+				<%= image_tag(palavra.imagem.url(:small)) if palavra.imagem.present?  %>					
+				<div class="texto-palavra">
+					<h4><%= link_to "#{palavra.titulo.capitalize}", "/show_palavra/#{palavra.id}", remote: true %></h4>
+					
+					<%= sub_texto(palavra.texto,200) %>	
+				</div>
+				<br />					
 			</div>	
-			
-		</div>	
-	<% end %>
-	
-	<div class="link-veja-mais">
-		<%= link_to "Veja Mais", '/palavras' , remote: true, class: 'btn-default-index' %>
+		<% end %>
+		
+		<div class="link-veja-mais">
+			<%= link_to "Veja Mais", '/palavras' , remote: true, class: 'btn-default-index' %>
+		</div>
 	</div>
 <% end %>	
 

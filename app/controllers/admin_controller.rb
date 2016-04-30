@@ -195,3 +195,5 @@ class AdminController < ApplicationController
       @adm = Artist.find_by(admin: true)
     end
 end
+
+

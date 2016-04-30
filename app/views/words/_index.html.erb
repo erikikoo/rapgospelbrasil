@@ -20,7 +20,7 @@
       <div class="container-noticias text-justify">
         <div class="noticia">
           <p>
-            <% if @profile == "adm" %>
+            <% if @profile == "admin" %>
               <h3><%= word.titulo %></h3>
             <% else %>         
               <h3>
@@ -38,7 +38,7 @@
           <p>
             <strong>Criando em : </strong><%= word.created_at.strftime('%d/%m/%Y') %>
           </p>
-          <% if @profile == "adm" %>
+          <% if @profile == "admin" %>
             <td><%= link_to 'Mostrar', "/show_palavra/#{word.id}/adm" ,class: 'btn btn-default', remote: true %></td>
             <td><%= link_to 'Editar', "/edit_palavra/#{word.id}/adm", class: 'btn btn-default', remote: true %></td>
             <td><%= link_to 'Remover', "/remove_palavra/#{word.id}/adm", class: 'btn btn-danger',remote: true ,method: :delete, data: { confirm: 'Deseja realmente excluir esta palavra?' } %></td>

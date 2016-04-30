@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  after_filter :set_header_for_iframe 
   
   include Pundit
   # Prevent CSRF attacks by raising an exception.
@@ -35,6 +36,10 @@ class ApplicationController < ActionController::Base
     def user_not_authorized
       flash[:alert] = "Você não possui autorização para acessar este painel!"
       redirect_to(request.referrer || artist_datas_path)
+    end
+
+    def set_header_for_iframe 
+      response.headers.delete("X-Frame-Options")
     end
 
     

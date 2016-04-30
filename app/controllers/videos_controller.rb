@@ -2,6 +2,7 @@ class VideosController < ApplicationController
   before_action :set_video, only: [:show, :edit, :update, :destroy]
   before_action :get_artist_current
   
+
   # GET /videos
   # GET /videos.json
   def index
@@ -28,6 +29,7 @@ class VideosController < ApplicationController
   def create
     @video = Video.new(video_params)
     @admin = params[:user]
+    #@video.link = add_video(@video.link)
     if @admin == 'admin'
       @video.artist_id = current_artist.id
     else 
@@ -97,5 +99,13 @@ class VideosController < ApplicationController
     def video_params
       params.require(:video).permit(:link, :profile)
     end
+
+
+    def add_video(video)   
+     "<iframe width='560' height='315' src='#{video}' frameborder='0' allowfullscreen></iframe>"
+    end
+
+
+
 
 end

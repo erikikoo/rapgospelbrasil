@@ -81,13 +81,35 @@
 	color: #000;
 }
 
-.noticia {
+.noticia {	
 	padding: 10px;
 }
 
-.noticia-texto {
+.noticia-index {
 	position: relative;
-	margin-top: -69px;
+	margin: 10px;
+	padding: 10px;
+}
+
+.palavra-index {
+	padding: 10px;
+}
+
+.palavra-index img {
+	float: left;
+	padding-right: 10px;
+	margin-top: 12px;
+}
+
+.texto-palavra {
+	margin-top: -10px;
+	margin-left: 70px;
+}
+
+
+.noticia-texto {
+	position: absolute;
+	margin-top: 0px;
 	left: 77px;
 	width: 500px;
 }
@@ -202,11 +224,11 @@
 
 
 .usuario-controle {
-	width: 217px;
+	width: 250px;
 	height: 30px;	
 	position: absolute;
 	top:200px;
-	left: 70%;
+	left: 67%;
 	z-index: 4;
 	color: #fff;
 }
@@ -227,7 +249,10 @@
 }
 
 .link-veja-mais {
-	float: right;
+	position:absolute;
+	left:490px;
+	top:242px;
+	
 }
 
 .titulo h4 {
@@ -262,3 +287,4 @@
 	top:0px;
 	left:360px;
 }
+
