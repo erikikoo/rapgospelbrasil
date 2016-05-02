@@ -16,8 +16,7 @@
 <% else %>
   <% @notices.each do |notice| %>
       <div class="container-noticias text-justify">
-        <div class="noticia">
-          <p>
+        <div class="noticias-index">          
             <% if @profile == "admin" %>
               <h3><%= notice.titulo %></h3>
             <% else %>         
@@ -25,28 +24,26 @@
                 <%= link_to "#{notice.titulo}", "/show_noticia/#{notice.id}", remote: true %>
               </h3>
             <% end %>
-          </p>
-          <div class="noticia">
-            <% if notice.imagem.present? %>
-              <span class="imagem-noticia-list">
-                <%= image_tag(notice.imagem.url(:thumb)) %>
-              </span> 
-            <% end %>
-            <span class="texto-noticia"><%= sub_texto(notice.noticia,500) %></span>
-          </div>
           
-          <br/>
-          <p>
-            <strong>Criando em : </strong><%= notice.created_at.strftime('%d/%m/%Y') %>
-          </p>
-          <% if @profile == "adm" %>
-            <td><%= link_to 'Mostar', "/show_noticia/#{notice.id}/adm" ,class: 'btn btn-default', remote: true %></td>
-            <td><%= link_to 'Editar', "/edit_noticia/#{notice.id}/adm", class: 'btn btn-default', remote: true %></td>
-            <td><%= link_to 'Remover', "/remove_noticia/#{notice.id}/adm", class: 'btn btn-danger',remote: true ,method: :delete, data: { confirm: 'Deseja realmente excluir esta noticia?' } %></td>
-          <% end %>
+            <div class="noticias">
+                <% if notice.imagem.present? %>
+                  <span class="imagem-noticia-list">
+                    <%= image_tag(notice.imagem.url(:thumb)) %>
+                  </span> 
+                <% end %>
+                <span class="texto-noticias"><%= sub_texto(notice.noticia,500) %></span>
+                <br/>
+                <span class="criado-em"><strong>Criando em : </strong><%= notice.created_at.strftime('%d/%m/%Y') %></span>
+                <br/>
+
+                <% if @profile == "admin" %>
+                    <td><%= link_to 'Mostar', "/show_noticia/#{notice.id}/admin" ,class: 'btn btn-default', remote: true %></td>
+                    <td><%= link_to 'Editar', "/edit_noticia/#{notice.id}/admin", class: 'btn btn-default', remote: true %></td>
+                    <td><%= link_to 'Remover', "/remove_noticia/#{notice.id}/admin", class: 'btn btn-danger',remote: true ,method: :delete, data: { confirm: 'Deseja realmente excluir esta noticia?' } %></td>
+                <% end %>   
+            </div>
         </div>
-        
-        </div>
+      </div>  
   <% end %>
 <% end %>
 

@@ -1,0 +1,67 @@
+<% if !@status.nil? %>
+  <p>
+    <div class="alert alert-success mensagem" id="mensagem"></div>
+  </p>  
+<% end %>
+
+
+<p>
+   <%= link_to 'Adicionar Top 5', '/novo_top5', remote: true ,:class => 'btn btn-default'  %>  
+</p>
+    
+
+
+<% if @top5s.empty? %>
+    <h5>Não existem top 5 cadastrados</h5>  
+<% else %>
+  <table class="table table-striped">
+    
+    <% @top5s.each do |top5| %>
+        <div class="container-noticias text-justify">
+          <div class="noticias-index">          
+              <thead>
+                <th>Rank</th>
+                <th>Musica</th>
+                <th>Artista</th>
+                <th>Criado em </th>
+              </thead>
+              <tr>                
+                <td rowspancing='4'><h5><%= top5.created_at.strftime('%d/%m/%Y') %></h5></td>
+              </tr>
+              <tr>
+                <td><strong>1ª</strong></td>
+                <td><%= top5.titulo %></td>
+                <td><%= top5.artista %></td>                
+              </tr>
+              <tr>
+                <td><strong>2ª</strong></td>
+                <td><%= top5.titulo2 %></td>
+                <td><%= top5.artista2 %></td>
+                <td></td>
+              </tr>
+              <tr>  
+                <td><strong>3ª</strong></td>
+                <td><%= top5.titulo3 %></td>
+                <td><%= top5.artista3 %></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td><strong>4ª</strong></td>
+                <td><%= top5.titulo4 %></td>
+                <td><%= top5.artista4 %></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td><strong>5ª</strong></td>
+                <td><%= top5.titulo5 %></td>
+                <td><%= top5.artista5 %></td>
+                <td></td>
+              </tr>
+            </div>
+          </div>
+        </div>  
+        
+    <% end %>
+  </table>
+<% end %>
+

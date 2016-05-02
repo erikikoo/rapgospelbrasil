@@ -37,7 +37,7 @@ class AdminController < ApplicationController
       @query = params[:filtro][:option]          
     end
     if @query == 't'
-          @artists = ArtistData.all
+          @artists = ArtistData.where.not(artist_id: @adm.id) 
         elsif @query == 'a'
           @option = "aprovado"
           @artists = ArtistData.where(aprovado: true, bloqueado: false)
@@ -115,7 +115,7 @@ class AdminController < ApplicationController
   def palavras
       if params[:status]
         @status = params[:status]
-     end
+     end          
   end
 
   def nova_palavra
@@ -138,8 +138,10 @@ class AdminController < ApplicationController
   end
 
   def top5
-    @top5 = Top5.new      
+    redirect_to top5s_path
   end
+
+
 
   def videos    
     @videos = Video.where("artist_id = ? OR artist_id = ?" ,1,2)
@@ -164,7 +166,7 @@ class AdminController < ApplicationController
     end
 
     def get_all_words
-      @words = Word.all 
+      @words = Word.order(created_at: :desc)
     end
 
     def get_dados_artista

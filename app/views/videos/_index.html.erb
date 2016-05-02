@@ -20,7 +20,7 @@
         <ul>
           <% @videos.each do |video| %>      
             <li class='img-thumbnail'>
-              <%= raw(video.link) %>          
+              <%= add_video(video.link)%>          
               <% if @profile == "admin" || @profile == "adm" %>
                 <br />
                 <%= link_to 'Remover', "/remove_video/#{video.id}/#{@profile}", class: 'btn btn-danger',remote: true ,method: :delete, data: { confirm: 'Deseja realmente excluir esta video?' } %>

@@ -6,24 +6,44 @@
 
 .left {
 	position: relative;
-	width:350px;	
+	width:325px;	
 	height: 290px; 
 	margin-top: -15px;
-}
-.img-index {	
-	width: 150px;
-	height: 100px;
+	left: -10px;
 }
 
-.titulo h4 {
+
+.titulo  {
 	position: absolute;
-	left:160px;
-	top:50px;
-	font-size: 30px;
+	left:160px;	
+	width: 200px;
+	font-size: 20px;	
 }
 
-.noticia p img {
-	padding: 5px;
+.titulo-sem-img {	
+	position: absolute;
+	
+	width: 200px;
+	font-size: 20px;	
+
+}
+
+.noticia {
+	position: absolute;
+	top: 30px;
+	height: 260px;
+	width:350px;	
+	left: 0px;
+}
+
+.noticia p {
+	margin-left: -20px;
+	margin-top: 10px;
+	width: 355px;
+}
+
+.noticia img {
+	margin-left: -20px; 
 }
 
 
@@ -81,14 +101,18 @@
 	color: #000;
 }
 
-.noticia {	
-	padding: 10px;
-}
 
 .noticia-index {
+	position: relative;	
+	left: 20px;
+	
+}
+
+.noticias-index {
 	position: relative;
-	margin: 10px;
-	padding: 10px;
+	width: 100%;
+	height: auto;
+
 }
 
 .palavra-index {
@@ -193,6 +217,18 @@
 
 }
 
+.texto-noticia {
+	position: absolute;
+	top: 30px;	
+	width: 340px;
+}
+
+.texto-noticias {
+	position: relative;	
+	padding: 10px;	
+}
+
+
 .body {
 	position: relative;	
 	top:-250px;	
@@ -250,21 +286,23 @@
 
 .link-veja-mais {
 	position:absolute;
-	left:490px;
-	top:242px;
-	
+	left:475px;
+	top:242px;	
 }
 
-.titulo h4 {
+.link_videos {
 	position: absolute;
-	top: 26px;
-	left: 160px;
+	left: 231px;
+	top: 265px;
 }
+
+
 
 .botao-veja-mais-ultima-noticia {
 	position: absolute;
-	top:115px;	
-	left:163px;
+	top:191px;	
+	left:220px;
+	width: 103px;	
 }
 
 .btn-default-index {
@@ -288,3 +326,6 @@
 	left:360px;
 }
 
+.criado-em {
+	float: right;
+}

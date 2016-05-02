@@ -179,7 +179,7 @@
 
 .container-noticias {
 	margin: 10px;
-	padding: 0px 15px 50px;
+	padding: 0px 15px 0px;
 	border: 1px solid #ccf;
 	height: auto;
 }
@@ -267,13 +267,6 @@
 	margin-left: auto;
 }
 
-.imagem-noticia {	
-	float: left;	
-}
-
-.imagem-noticia p {
-	margin-top: 20px;
-}
 
 .imagem-noticia-show {	
 	float: left;	
@@ -283,7 +276,6 @@
 .imagem-noticia-list {	
 	float: left;	
 	padding-right: 15px;	
-	margin-top: -15px;
 	
 }
 
@@ -304,6 +296,10 @@
 	display: inline-block;
 }
 
+.videos ul {
+
+	margin-left: -45px;
+}
 .top5 tr td {
 	padding: 3px;
 }

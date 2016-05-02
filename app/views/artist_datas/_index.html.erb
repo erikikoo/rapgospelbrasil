@@ -4,14 +4,14 @@
   <div class="artistas">
     
     
-    <div><%= render partial: 'artist_datas/search_artist' %></div>
+   
     
 
 
     <% if @artist_data.empty? %>
-      Não exitem artistas cadastrados
+      <h5>Não exitem artistas cadastrados</h5>
     <% else %>
-      
+      <div><%= render partial: 'artist_datas/search_artist' %></div>
       <% @artist_data.each do |artist_data| %>
         <div class="item-artista img-thumbnail">
            <%= link_to(image_tag(artist_data.logo.url(:thumb)), "/show_artista/#{artist_data.id}" ,remote: true)  %>
@@ -19,9 +19,9 @@
            <span class="text-center"> <%= artist_data.nome %> </span>
          </div>
          <% if @profile == "adm" %> 
-          <%= link_to "edit","/edit_disco/#{album.id}/adm", :class => "btn", :remote => true %>
+          <%= link_to "Editar","/edit_disco/#{album.id}/adm", :class => "btn", :remote => true %>
 
-              <%= link_to 'Destroy', "/remove_disco/#{album.id}/adm", method: :delete, :remote => true ,data: { confirm: 'Are you sure?' } , class: 'btn btn-danger'%>
+              <%= link_to 'Apagar', "/remove_disco/#{album.id}/adm", method: :delete, :remote => true ,data: { confirm: 'Are you sure?' } , class: 'btn btn-danger'%>
         <% end %>
       <% end %>
     <% end %>  

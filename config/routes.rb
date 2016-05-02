@@ -57,7 +57,8 @@ Rails.application.routes.draw do
   get '/novo_email/'           => 'principal#novo_email'
   get '/novo_telefone/'        => 'principal#novo_telefone'
   get '/novo_video/'           => 'principal#novo_video'
-  get '/novo_rede_social/'     => 'principal#novo_rede_social'
+  get '/novo_top5/'            => 'top5s#new'
+
   #rotas ajax
   #views padrão (sem login)
   get '/principal/perfil'          => 'principal#perfil'

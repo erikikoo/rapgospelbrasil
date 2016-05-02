@@ -4,7 +4,7 @@ class Top5sController < ApplicationController
   # GET /top5s
   # GET /top5s.json
   def index
-    @top5s = Top5.all
+    @top5s = Top5.order(created_at: :desc)    
   end
 
   # GET /top5s/1

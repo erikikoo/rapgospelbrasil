@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  after_filter :set_header_for_iframe 
+ 
   
   include Pundit
   # Prevent CSRF attacks by raising an exception.
@@ -38,9 +38,6 @@ class ApplicationController < ActionController::Base
       redirect_to(request.referrer || artist_datas_path)
     end
 
-    def set_header_for_iframe 
-      response.headers.delete("X-Frame-Options")
-    end
 
     
 

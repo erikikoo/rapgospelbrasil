@@ -1,4 +1,4 @@
-$('.painel-artistas-adm').html('<%= escape_javascript (render partial: "videos/show.html.erb") %>');
+$('.painel-artistas-adm').html('<%= escape_javascript (render partial: "videos/index") %>');
 <% if @status == 'success' %>
 	<%= render partial: 'mensagem/success'%>
 <% elsif @status == 'remover' %>

@@ -1,26 +1,35 @@
-<div class="left">	
-	
+<div class="left">		
 		<span class="text-ultima">&Uacute;LTIMAS </span> <span class="titulo-noticia">NOTÍCIAS</span>
 		
 		<% if @noticia.nil? %>
 			<h5>Não existe noticias cadastradas</h5>
-
-		<% else %>
-			<span class="titulo" >			
-				<h4>				
-					<%= @noticia.titulo %>
-				</h4>
+		<% else %>			
+			<span class="noticia">
+				<% if @noticia.imagem.present? %>
+					<span class="titulo">
+				<% else %>
+					<span class="titulo-sem-img">
+				<% end %>			
+				<%= @noticia.titulo.capitalize %>								
+				</span>
+				
+				
+					<span class="noticia-index text-justify">
+						<% if @noticia.imagem.present? %>
+							<%= image_tag(@noticia.imagem.url(:small))  %>									
+							<%= sub_texto(raw(@noticia.noticia),299) if !@noticia.nil? %>						
+						<% else %>
+							<span class="texto-noticia text-justify">
+								<%= sub_texto(raw(@noticia.noticia),400) if !@noticia.nil? %>	
+							</span>		
+						<% end %>	
+					</span> 
+			
 				<div class="botao-veja-mais-ultima-noticia">
 					<%= link_to "LEIA AGORA", "/show_noticia/#{@noticia.id}", remote: true , class: 'btn-default-index'  %>
 				</div>
 			</span>
-			
-			<span class="noticia text-justify " id="imagem">
-				<span class="imagem-noticia">
-					<%= image_tag(@noticia.imagem.url(:small)) if @noticia.present?  %>				
-					<%= sub_texto(raw(@noticia.noticia),350) if !@noticia.nil? %>
-				</span> 
-			</span>
 		<% end %>
 	
 </div>
+

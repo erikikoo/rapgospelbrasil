@@ -4,11 +4,9 @@
   </p>  
 <% end %>
 
-
-
   <% if @profile == "admin" %>
     <p>
-      <%= link_to 'Adicionar Palavra', '/nova_palavra/adm', remote: true ,:class => 'btn btn-default'  %>  
+      <%= link_to 'Adicionar Palavra', '/nova_palavra/admin', remote: true ,:class => 'btn btn-default'  %>  
     </p>
     
   <% end %>
@@ -18,8 +16,7 @@
 <% else %>
   <% @words.each do |word| %>
       <div class="container-noticias text-justify">
-        <div class="noticia">
-          <p>
+        <div class="noticias-index">          
             <% if @profile == "admin" %>
               <h3><%= word.titulo %></h3>
             <% else %>         
@@ -27,25 +24,27 @@
                 <%= link_to "#{word.titulo}", "/show_palavra/#{word.id}", remote: true %>
               </h3>
             <% end %>
-          </p>
-          <div class="noticia">
-            <% if word.present? %>
-                <span class="imagem-noticia-list"><%= image_tag(word.imagem.url(:thumb)) %></span> 
-            <% end %>
-            <span class="texto-noticia"><%= sub_texto(word.texto,500) %></span>
-          </div>
-          <br/>
-          <p>
-            <strong>Criando em : </strong><%= word.created_at.strftime('%d/%m/%Y') %>
-          </p>
-          <% if @profile == "admin" %>
-            <td><%= link_to 'Mostrar', "/show_palavra/#{word.id}/adm" ,class: 'btn btn-default', remote: true %></td>
-            <td><%= link_to 'Editar', "/edit_palavra/#{word.id}/adm", class: 'btn btn-default', remote: true %></td>
-            <td><%= link_to 'Remover', "/remove_palavra/#{word.id}/adm", class: 'btn btn-danger',remote: true ,method: :delete, data: { confirm: 'Deseja realmente excluir esta palavra?' } %></td>
-          <% end %>
+          
+            <div class="noticias">
+                <% if word.imagem.present? %>
+                  <span class="imagem-noticia-list">
+                    <%= image_tag(word.imagem.url(:thumb)) %>
+                  </span> 
+                <% end %>
+                <span class="texto-noticias"><%= sub_texto(word.texto,500) %></span>
+                <br/>
+                <span class="criado-em"><strong>Criando em : </strong><%= word.created_at.strftime('%d/%m/%Y') %></span>
+                <br/>
+
+                <% if @profile == "admin" %>
+                    <td><%= link_to 'Mostar', "/show_palavra/#{word.id}/admin" ,class: 'btn btn-default', remote: true %></td>
+                    <td><%= link_to 'Editar', "/edit_palavra/#{word.id}/admin", class: 'btn btn-default', remote: true %></td>
+                    <td><%= link_to 'Remover', "/remove_palavra/#{word.id}/admin", class: 'btn btn-danger',remote: true ,method: :delete, data: { confirm: 'Deseja realmente excluir esta palavra?' } %></td>
+                <% end %>   
+            </div>
         </div>
-        
-        </div>
+      </div>  
   <% end %>
 <% end %>
+
 

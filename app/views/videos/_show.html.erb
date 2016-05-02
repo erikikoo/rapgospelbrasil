@@ -4,36 +4,14 @@
   </p>  
 <% end %>
 
-<% if @profile == "adm" %>
-	<p>
-		<%= link_to 'Adicionar video', '/novo_video', remote: true ,:class => 'btn btn-default'  %>
-	</p>
-<% elsif @profile == "admin" %>
-	<p>
-		<%= link_to 'Adicionar video', '/novo_video/adm', remote: true ,:class => 'btn btn-default'  %>
-	</p>
-<% end %>
 <div class="videos">
 	<!-- pag do Admin -->
 
 	<% if @videos.nil? && @artist_data.videos.empty? %>
-		<h5>Não possui video cadastrado </h5>	
-	<% elsif !@videos.nil? %>
-		<% @videos.each do |video| %>
-			<%= raw(video.link) %>
-			<% if @profile == "admin" %>
-				<%= link_to 'Remover', "/remove_video/#{video.id}/admin", method: :delete, :remote => true ,data: { confirm: 'Deseja realmente excluir este video?' } , class: 'btn btn-danger'%>
-			<% end %>
-		<% end %>	
+		<h5>Não possui video cadastrado </h5>		
 	<% elsif @videos.nil? && !@artist_data.videos.empty? %>		
-		<% @artist_data.videos.each do |video| %>				
-			<% if !@profile == "adm" %>
-				<div class="painel-video">
-			<% end %>				
-				<%= raw(video.link) %><br />					
-				<% if @profile == "adm" || @profile == "admin" %>
-					<%= link_to 'Remover', "/remove_video/#{video.id}/adm", method: :delete, :remote => true ,data: { confirm: 'Deseja realmente excluir este video?' } , class: 'btn btn-danger'%>
-					<% end %>				
+		<% @artist_data.videos.each do |video| %>							
+				<%= add_video(video.link) %>								
 			</div>
 		<% end %>
 	<% end %>
