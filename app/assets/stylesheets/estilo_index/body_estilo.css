@@ -258,6 +258,12 @@
 }
 
 
+.container-noticias {
+	margin: 10px;
+	padding: 0px 15px 40px;
+	border: 1px solid #ccf;
+	height: auto;
+}
 
 .usuario-controle {
 	width: 250px;
