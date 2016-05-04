@@ -16,6 +16,7 @@ gem 'devise'
 gem 'ckeditor', '~> 4.1', '>= 4.1.6'
 #PAPERCLIP
 gem "paperclip"
+
 #simple-form	
 gem 'simple_form'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
