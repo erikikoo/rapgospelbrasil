@@ -116,7 +116,7 @@
 }
 
 .palavra-index {
-	padding: 10px;
+	padding: 1px;
 }
 
 .palavra-index img {
@@ -328,4 +328,9 @@
 
 .criado-em {
 	float: right;
+}
+
+.noticias {
+	position: relative;
+	height: auto;
 }
